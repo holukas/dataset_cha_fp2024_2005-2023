@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12"
-jupyterlab = "^4.2.4"
+jupyterlab = ">=4.2.4"
 
 [tool.poetry.group.dev.dependencies]
 diive = { path = "../../21 - DIIVE/diive", develop = true }
