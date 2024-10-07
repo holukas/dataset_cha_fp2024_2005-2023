@@ -8,6 +8,7 @@
 *.parquet
 *.csv
 *.pptx
+*.html
 
 
 # Byte-compiled / optimized / DLL files
