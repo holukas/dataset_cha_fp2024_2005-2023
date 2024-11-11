@@ -9,6 +9,8 @@
 *.csv
 *.pptx
 *.html
+*.xlsx
+*.pdf
 
 
 # Byte-compiled / optimized / DLL files
