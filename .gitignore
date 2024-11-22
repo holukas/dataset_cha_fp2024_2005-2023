@@ -11,6 +11,7 @@
 *.html
 *.xlsx
 *.pdf
+*.zip
 
 
 # Byte-compiled / optimized / DLL files
