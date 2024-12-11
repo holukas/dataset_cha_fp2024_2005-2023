@@ -2,9 +2,10 @@
 
 # e.g.: /src
 /.idea/
-/0_data
-/10_METEO/11_meteoscreening_2021-2023/2022_YW
-/10_METEO/11_meteoscreening_2021-2023/2023_YW
+/notebooks/0_data
+/notebooks/todo-33_FLUXES_L4_REddyProc_MDSGapFilling_IRGA
+/notebooks/x32_FLUXES_L1_FluxProcessingChain_IRGA
+/notebooks/x34_FLUXES_L4_MDSCorrectionsWithRFGapFilling_IRGA
 *.parquet
 *.csv
 *.pptx
