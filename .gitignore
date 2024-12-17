@@ -3,9 +3,7 @@
 # e.g.: /src
 /.idea/
 /notebooks/0_data
-/notebooks/todo-33_FLUXES_L4_REddyProc_MDSGapFilling_IRGA
-/notebooks/x32_FLUXES_L1_FluxProcessingChain_IRGA
-/notebooks/x34_FLUXES_L4_MDSCorrectionsWithRFGapFilling_IRGA
+/notebooks/40_FLUX_PROCESSING_CHAIN/tests
 *.parquet
 *.csv
 *.pptx
@@ -13,6 +11,8 @@
 *.xlsx
 *.pdf
 *.zip
+x-*.ipynb
+x-*
 
 
 # Byte-compiled / optimized / DLL files
