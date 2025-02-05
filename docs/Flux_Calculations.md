@@ -41,9 +41,9 @@
 | **2024_1**         | 0.30, 0.05-0.50 | same as CO2  |                       |
 
 
-##### **Table EC2**. QCL and LGR constant time lags (seconds) for N<sub>2</sub>O and CH4 used in final flux calculations. In addition, the range  where most time lags were found is given.
+##### **Table EC2**. QCL and LGR constant time lags (seconds) for N<sub>2</sub>O and CH<sub>4</sub> used in final flux calculations. In addition, the range  where most time lags were found is given.
 
-| **time period**       | **N2O QCL LGR**  | **CH4 QCL LGR**  | **H2O QCL LGR** | **Notes**                                              |
+| **time period**       | **N2O QCL LGR**  | **CH<sub>4</sub> QCL LGR**  | **H2O QCL LGR** | **Notes**                                              |
 | --------------------- | ---------------- | ---------------- | --------------- | ------------------------------------------------------ |
 | **2012_X**            | 0.85, 0.70-1.50  | 0.85, 0.70-1.50  | 1.30, 1.00-3.00 | first time period QCL                                  |
 | **2013_X**            | 1.15, 0.85-1.70  | 1.10, 0.85-1.80  | 2.10, 1.30-3.30 |                                                        |
@@ -98,4 +98,40 @@ Here are results from a comparison of annual wind direction histograms (with bin
 # Level 1: Final flux calculations
 
 XXX
+
+###### **List EC1**: Level-1 files IRGA (2005-2024).
+
+| Used Level-1 files.         |
+| ------------------------------------------------------------------------------------------ |
+| 2005_1_IRGA_eddypro_CH-CHA_FR-20240730-112428_fluxnet_2024-07-30T182651_adv.csv         |
+| 2006_1_IRGA_eddypro_CH-CHA_FR-20240730-112420_fluxnet_2024-07-31T080813_adv.csv         |
+| 2007_1_IRGA_eddypro_CH-CHA_FR-20240730-112410_fluxnet_2024-07-31T064739_adv.csv         |
+| 2008_1_IRGA_eddypro_CH-CHA_FR-20240730-112401_fluxnet_2024-07-31T085214_adv.csv         |
+| 2009_1+3_eddypro_CH-CHA_FR-20240919-144235_fluxnet_2024-09-20T054007_adv.csv            |
+| 2009_2_eddypro_CH-CHA_FR-20240919-144503_fluxnet_2024-09-19T181458_adv.csv              |
+| 2010_1+3_IRGA_eddypro_CH-CHA_FR-20240728-190324_fluxnet_2024-07-29T140100_adv.csv       |
+| 2010_2_IRGA_eddypro_CH-CHA_FR-20240730-112352_fluxnet_2024-07-30T160648_adv.csv         |
+| 2011_1_IRGA_eddypro_CH-CHA_FR-20240728-190344_fluxnet_2024-07-29T153514_adv.csv         |
+| 2012_1_IRGA_eddypro_CH-CHA_FR-20240730-112342_fluxnet_2024-07-30T134628_adv.csv         |
+| 2012_2_IRGA_eddypro_CH-CHA_FR-20240728-190409_fluxnet_2024-07-29T165401_adv.csv         |
+| 2013_1_IRGA_eddypro_CH-CHA_FR-20240727-210036_fluxnet_2024-07-29T001913_adv.csv         |
+| 2014_1_IRGA_eddypro_CH-CHA_FR-20240727-210133_fluxnet_2024-07-29T001656_adv.csv         |
+| 2015_1_IRGA_eddypro_CH-CHA_FR-20240727-210058_fluxnet_2024-07-28T091257_adv.csv         |
+| 2015_2_IRGA_eddypro_CH-CHA_FR-20240727-210122_fluxnet_2024-07-28T151141_adv.csv         |
+| 2016_1+3_IRGA_eddypro_CH-CHA_FR-20240730-112331_fluxnet_2024-07-31T065812_adv.csv       |
+| 2016_2_IRGA_eddypro_CH-CHA_FR-20240730-112320_fluxnet_2024-07-30T165223_adv.csv         |
+| 2017_1+2+3_IRGA_eddypro_CH-CHA_FR-20240727-210107_fluxnet_2024-07-29T012549_adv.csv     |
+| 2018_1+2_IRGA_eddypro_CH-CHA_FR-20240727-210213_fluxnet_2024-07-28T230450_adv.csv       |
+| 2018_3_IRGA_eddypro_CH-CHA_FR-20240730-112310_fluxnet_2024-07-30T132817_adv.csv         |
+| 2018_4_IRGA_eddypro_CH-CHA_FR-20240730-112301_fluxnet_2024-07-30T144534_adv.csv         |
+| 2019_1+2+3+4+5_IRGA_eddypro_CH-CHA_FR-20240727-210200_fluxnet_2024-07-29T014548_adv.csv |
+| 2020_1+2+3_IRGA_eddypro_CH-CHA_FR-20240727-210028_fluxnet_2024-07-28T094044_adv.csv     |
+| 2020_4_IRGA_eddypro_CH-CHA_FR-20240730-112251_fluxnet_2024-07-30T121132_adv.csv         |
+| 2020_5_IRGA_eddypro_CH-CHA_FR-20240727-210053_fluxnet_2024-07-28T161420_adv.csv         |
+| 2021_1_IRGA_eddypro_CH-CHA_FR-20240727-005940_fluxnet_2024-07-27T135432_adv.csv         |
+| 2021_2_IRGA_eddypro_CH-CHA_FR-20240727-010348_fluxnet_2024-07-27T120109_adv.csv         |
+| 2022_1+2_IRGA_eddypro_CH-CHA_FR-20240726-181747_fluxnet_2024-07-27T080504_adv.csv       |
+| 2022_3_IRGA_eddypro_CH-CHA_FR-20240726-181749_fluxnet_2024-07-27T051830_adv.csv         |
+| 2023_1_IRGA_eddypro_CH-CHA_FR-20240726-181748_fluxnet_2024-07-27T162051_adv.csv         |
+| 2024_IRGA_eddypro_CH-CHA_FR-20250124-134851_fluxnet_2025-01-25T080153_adv.csv           |
 

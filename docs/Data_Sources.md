@@ -9,11 +9,11 @@ Detailed management data are available in an Excel file. The file contains info 
 
 ## Unique events
 
-Each management event was assigned a variable name and a list of unique events was assembled. In total, we identified 34 unique managmement events ([Table M1](https://www.swissfluxnet.ethz.ch/index.php/documentation/ch-cha-fp2024-2005-2023/#Table_M1_Unique_management_events_between_2001_and_2024)).
+Each management event was assigned a variable name and a list of unique events was assembled. In total, we identified 34 unique managmement events (**Table M1**).
 
 ##### **Table M1**. Unique management events between 2001 and 2024.
 
-| Unique management events                         |
+| Unique management events                     |
 | -------------------------------------------- |
 | 1: MGMT_FERT_ORG_MAN                         |
 | 2: MGMT_PPGM_HERBREMOVAL_RUMEX               |
