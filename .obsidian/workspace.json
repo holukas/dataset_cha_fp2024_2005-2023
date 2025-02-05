@@ -6,70 +6,43 @@
       {
         "id": "5cc31ff0d2ff9a41",
         "type": "tabs",
+        "dimension": 69.01469317199654,
         "children": [
-          {
-            "id": "b96e4bde0c6a0d85",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/Data_Sources.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Data_Sources"
-            }
-          },
           {
             "id": "1b429a138060877d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/README.md",
+                "file": "docs/Meteo_Data.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Meteo_Data"
             },
             "group": "09c7e238c79b8e2b"
           },
           {
-            "id": "fcbe34b99aebb68d",
+            "id": "8af73156c39397c0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "webviewer",
               "state": {
-                "file": "docs/References.md",
-                "mode": "source",
-                "source": false
+                "url": "https://www.icos-cp.eu/data-products/2G60-ZHAK",
+                "title": "Warm Winter 2020 ecosystem eddy covariance flux product for 73 stations in FLUXNET-Archive format—release 2022-1 | ICOS",
+                "mode": "webview"
               },
-              "icon": "lucide-file",
-              "title": "References"
-            }
-          },
-          {
-            "id": "223718ba6438a856",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/Tables.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Tables"
+              "icon": "globe-2",
+              "title": "Warm Winter 2020 ecosystem eddy covariance flux product for 73 stations in FLUXNET-Archive format—release 2022-1 | ICOS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "3c0c231474fd2b51",
         "type": "tabs",
+        "dimension": 30.985306828003456,
         "children": [
           {
             "id": "91d93e74fdeefc36",
@@ -77,12 +50,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/README.md",
+                "file": "docs/Meteo_Data.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Meteo_Data"
             },
             "group": "09c7e238c79b8e2b"
           }
@@ -118,7 +91,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "\"table \"",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -139,11 +112,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 201.5
   },
   "right": {
     "id": "df4b0db2b0923cc6",
@@ -233,16 +207,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1b429a138060877d",
+  "active": "1c8c9d126e990db2",
   "lastOpenFiles": [
-    "notebooks/README.md",
+    "docs/Meteo_Data.md",
     "docs/README.md",
+    "docs/Management_Data.md",
     "README.md",
+    "docs/Flux_Post-processing.md",
+    "notebooks/30_MERGE_DATA/33.5_CH-CHA_IRGA+QCL+LGR+M10+MGMT_Level-1_eddypro_fluxnet_2005-2024.parquet",
+    "notebooks/README.md",
     "docs/References.md",
-    "docs/Data_Sources.md",
     "docs/Flux_Calculations.md",
     "docs/Links.md",
-    "docs/Flux_Post-processing.md",
     "docs.md",
     "docs/Figures.md",
     "docs/Lists.md",

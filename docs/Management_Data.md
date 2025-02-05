@@ -1,7 +1,3 @@
-# Meteo data
-- TODO
-# Management data
-
 - [Management notebook on GitHub](https://github.com/holukas/dataset_cha_fp2024_2005-2023/blob/main/notebooks/20_MANAGEMENT/22.0_ConvertMgmtToTimeseries_Correction.ipynb)
 - TODO: ADD EXCEL FILE
 
