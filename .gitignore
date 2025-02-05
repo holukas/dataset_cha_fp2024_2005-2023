@@ -4,6 +4,7 @@
 /.idea/
 /notebooks/0_data
 /notebooks/40_FLUX_PROCESSING_CHAIN/tests
+/_presentations
 *.parquet
 *.csv
 *.pptx
