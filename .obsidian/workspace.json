@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/CH-CHA FP2025.1 (2005-2024).md",
+                "file": "docs/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CH-CHA FP2025.1 (2005-2024)"
+              "title": "README"
             },
             "group": "11a21d334a098475"
           },
@@ -48,12 +48,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/CH-CHA FP2025.1 (2005-2024).md",
+                "file": "docs/README.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CH-CHA FP2025.1 (2005-2024)"
+              "title": "README"
             },
             "group": "11a21d334a098475"
           }
@@ -130,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/CH-CHA FP2025.1 (2005-2024).md",
+                "file": "docs/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +140,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for CH-CHA FP2025.1 (2005-2024)"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -149,12 +149,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/CH-CHA FP2025.1 (2005-2024).md",
+                "file": "docs/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from CH-CHA FP2025.1 (2005-2024)"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -178,13 +178,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/CH-CHA FP2025.1 (2005-2024).md",
+                "file": "docs/README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of CH-CHA FP2025.1 (2005-2024)"
+              "title": "Outline of README"
             }
           }
         ]
@@ -208,7 +208,7 @@
   "lastOpenFiles": [
     "docs/Tables.md",
     "docs/Lists.md",
-    "docs/CH-CHA FP2025.1 (2005-2024).md",
+    "docs/README.md",
     "docs/Figures.md",
     "README.md"
   ]
