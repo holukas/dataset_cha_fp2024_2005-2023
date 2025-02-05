@@ -21,27 +21,27 @@ I compared histograms of wind directions between 2005 and 2024 using Level-0 flu
 
 Here are results from a comparison of annual wind direction histograms (with bin width of 1°) to a reference period (2006-2009), all wind directions were calculated with a north offset of 7°, then a histogram was calculated for each year. The OFFSET describes how many degrees have to be added (or subtracted) to the half-hourly wind direction to yield a histogram that is most similar to the reference. All OFFSETS are small, which indicates that the wind directions are in good agreement.
 
-###### **Table EC3**. Wind direction offsets (in degrees) compared to a reference period (2006-2009) from Level-0 OPENLAG runs.
+##### **Table EC3**. Wind direction offsets (in degrees) compared to a reference period (2006-2009) from Level-0 OPENLAG runs.
 
-| **YEAR**   | **OFFSET (°)  <br>** |
-| ---------- | -------------------- |
-| **2005.0** | 1.0                  |
-| **2006.0** | 0.0                  |
-| **2007.0** | -2.0                 |
-| **2008.0** | -2.0                 |
-| **2009.0** | 0.0                  |
-| **2010.0** | 2.0                  |
-| **2011.0** | 6.0                  |
-| **2012.0** | 1.0                  |
-| **2013.0** | 1.0                  |
-| **2014.0** | 1.0                  |
-| **2015.0** | 1.0                  |
-| **2016.0** | 3.0                  |
-| **2017.0** | 4.0                  |
-| **2018.0** | 1.0                  |
-| **2019.0** | -1.0                 |
-| **2020.0** | -1.0                 |
-| **2021.0** | -1.0                 |
-| **2022.0** | 1.0                  |
-| **2023.0** | -2.0                 |
-| **2024.0** | 1.0                  |
+| **YEAR** | **OFFSET (°)  <br>** |
+| -------- | -------------------- |
+| **2005** | 1.0                  |
+| **2006** | 0.0                  |
+| **2007** | -2.0                 |
+| **2008** | -2.0                 |
+| **2009** | 0.0                  |
+| **2010** | 2.0                  |
+| **2011** | 6.0                  |
+| **2012** | 1.0                  |
+| **2013** | 1.0                  |
+| **2014** | 1.0                  |
+| **2015** | 1.0                  |
+| **2016** | 3.0                  |
+| **2017** | 4.0                  |
+| **2018** | 1.0                  |
+| **2019** | -1.0                 |
+| **2020** | -1.0                 |
+| **2021** | -1.0                 |
+| **2022** | 1.0                  |
+| **2023** | -2.0                 |
+| **2024** | 1.0                  |
