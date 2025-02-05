@@ -13,27 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Flux calculations.md",
+                "file": "docs/Lists.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flux calculations"
-            },
-            "group": "98545b6431b32b00"
-          },
-          {
-            "id": "9eb5fa0b6e039ee2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/Tables.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Tables"
+              "title": "Lists"
             }
           },
           {
@@ -42,13 +27,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Data sources.md",
+                "file": "docs/Flux post-processing.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Data sources"
-            }
+              "title": "Flux post-processing"
+            },
+            "group": "09c7e238c79b8e2b"
           },
           {
             "id": "fcbe34b99aebb68d",
@@ -78,7 +64,8 @@
               "title": "Tables"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "3c0c231474fd2b51",
@@ -90,14 +77,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Flux calculations.md",
+                "file": "docs/Flux post-processing.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flux calculations"
+              "title": "Flux post-processing"
             },
-            "group": "98545b6431b32b00"
+            "group": "09c7e238c79b8e2b"
           }
         ]
       }
@@ -246,15 +233,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b96e4bde0c6a0d85",
+  "active": "1b429a138060877d",
   "lastOpenFiles": [
+    "docs/Data sources.md",
+    "docs/Flux post-processing.md",
+    "docs/Lists.md",
     "docs/Tables.md",
     "docs/Flux calculations.md",
     "docs/README.md",
     "docs/Links.md",
     "docs/References.md",
-    "docs/Data sources.md",
-    "docs/Lists.md",
     "docs/Figures.md",
     "README.md"
   ]

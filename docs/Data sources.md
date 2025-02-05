@@ -11,9 +11,67 @@ Detailed management data are available in an Excel file. The file contains info 
 
 Each management event was assigned a variable name and a list of unique events was assembled. In total, we identified 34 unique managmement events ([Table M1](https://www.swissfluxnet.ethz.ch/index.php/documentation/ch-cha-fp2024-2005-2023/#Table_M1_Unique_management_events_between_2001_and_2024)).
 
+##### **Table M1**. Unique management events between 2001 and 2024.
+
+| Unique management events                         |
+| -------------------------------------------- |
+| 1: MGMT_FERT_ORG_MAN                         |
+| 2: MGMT_PPGM_HERBREMOVAL_RUMEX               |
+| 3: MGMT_PPGM_HARROWING_1CM                   |
+| 4: MGMT_USE_GRAZING_CATTLE                   |
+| 5: MGMT_PPGM_ROLLING                         |
+| 6: MGMT_PPGM_HARROWING_7CM                   |
+| 7: MGMT_SOWING_OVERSOWING_OH440RENO          |
+| 8: MGMT_USE_MOWING_GRASSSILAGE               |
+| 9: MGMT_FERT_MIN_CAN                         |
+| 10: MGMT_FERT_ORG_SLU                        |
+| 11: MGMT_USE_GRAZING_SHEEP                   |
+| 12: MGMT_SOWING_OVERSOWING_OH440EXTRA        |
+| 13: MGMT_USE_MOWING_AFTERGRASS               |
+| 14: MGMT_PPGM_HERBICIDE_ASULOX               |
+| 15: MGMT_SOILCULTIVATION_ROLLING             |
+| 16: MGMT_USE_MOWING_HAY                      |
+| 17: MGMT_SOWING_OVERSOWING_OH440RENOTURBO    |
+| 18: MGMT_SOWING_OVERSOWING_OH240RENO         |
+| 19: MGMT_PPGM_HERBICIDE_ALLYTABS             |
+| 20: MGMT_SOILCULTIVATION_PLOUGHING           |
+| 21: MGMT_SOILCULTIVATION_HARROWING_7CM       |
+| 22: MGMT_SOWING_RESOWING_OH440EXTRA          |
+| 23: MGMT_PPGM_PESTICIDE_MOLLUSCICIDE         |
+| 24: MGMT_PPGM_HERBICIDE_HARMONYTABS          |
+| 25: MGMT_PPGM_HERBICIDE_ASULAM               |
+| 26: MGMT_SOWING_OVERSOWING_HEBE-FIONA-TEDI   |
+| 27: MGMT_SOILCULTIVATION_HARROWING_1CM       |
+| 28: MGMT_USE_MOWING                          |
+| 29: MGMT_SOWING_OVERSOWING_HEBE-FIONA-MERULA |
+| 30: MGMT_PPGM_HERBICIDE_ROUNDUP              |
+| 31: MGMT_SOILCULTIVATION_TILLAGE_3-4CM       |
+| 32: MGMT_SOWING_RESOWING_UFA-420             |
+| 33: MGMT_PPGM_HERBICIDE                      |
+| 34: MGMT_SOILCULTIVATION_HARROWING           |
+
 ## Simplified variable names
 
-Unique events were simplified and grouped together, where appropriate. In addition, the parcel info was added to the variable names. We identified 14 events that were relevant for either parcel A or parcel B ([Table M2](https://www.swissfluxnet.ethz.ch/index.php/documentation/ch-cha-fp2024-2005-2023/#Table_M2_Simplified_and_grouped_management_variables)).
+Unique events were simplified and grouped together, where appropriate. In addition, the parcel info was added to the variable names. We identified 14 events that were relevant for either parcel A or parcel B (**Table M2**).
+
+##### **Table M2**. Simplified and grouped management variables.
+
+| Management per parcel             | counts |
+| --------------------------------- | ---------- |
+| MGMT_MOWING_PARCEL-B              | 118        |
+| MGMT_FERT_ORG_PARCEL-A            | 112        |
+| MGMT_MOWING_PARCEL-A              | 110        |
+| MGMT_FERT_ORG_PARCEL-B            | 85         |
+| MGMT_GRAZING_PARCEL-B             | 36         |
+| MGMT_GRAZING_PARCEL-A             | 34         |
+| MGMT_SOWING_PARCEL-B              | 21         |
+| MGMT_SOILCULTIVATION_PARCEL-B     | 17         |
+| MGMT_PESTICIDE_HERBICIDE_PARCEL-B | 12         |
+| MGMT_PESTICIDE_HERBICIDE_PARCEL-A | 11         |
+| MGMT_SOILCULTIVATION_PARCEL-A     | 11         |
+| MGMT_SOWING_PARCEL-A              | 6          |
+| MGMT_FERT_MIN_PARCEL-A            | 5          |
+| MGMT_FERT_MIN_PARCEL-B            | 2          |
 
 ## Converting management info to time series format
 
