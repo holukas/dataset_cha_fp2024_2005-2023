@@ -12,15 +12,16 @@
 
 ## Eddy covariance fluxes in this dataset
 
-- **NEE**: Net ecosystem exchange of carbon dioxide
-- **LE**: Latent heat flux
-- **H**: Sensible heat flux
-- **FN2O**: Nitrous oxide flux
-- **FCH4**: Methane flux
+- **NEE**: Net ecosystem exchange of carbon dioxide (2005-2024)
+- **LE**: Latent heat flux (2005-2024)
+- **H**: Sensible heat flux (2005-2024)
+- **FN2O**: Nitrous oxide flux (Jan 2012 - July 2022, with eight years of good data coverage)
+- **FCH4**: Methane flux (Jan 2012 - July 2022, with eight years of good data coverage)
 
 ## Upcoming updates
 
-- GPP and RECO from NEE partitioning
+- **GPP** and **RECO** from NEE partitioning
+- **ET** calculated from LE
 
 ## Acknowledgments
 
