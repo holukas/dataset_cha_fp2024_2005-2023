@@ -1,19 +1,118 @@
-### Level 2: Quality flag expansion
+# Level 2: Quality flag expansion
 
-- **Angle-of-attack (AoA) flag** was applied between `2008-01-01` and `2010-01-01`, and between `2016-03-01` and `2016-05-01`. All time periods when the flag indicated issues with AoA were flagged as bad data.
-- XXX
+## General
 
-### Level 3.1: Storage correction
+- The `SSITC` flag from EddyPro is expanded with results from additional quality flags.
+- All individual quality flags are combined into one overall quality flag `QCF`.
+- The `QCF` flag uses a `0-1-2` system, where
+	- `0` = best quality data
+	- `1` = medium quality data
+	- `2` = bad quality data, reject in all cases
+
+## Individual flags
+*See notebooks for more details*
+- **SSITC** test flag: Combination of the two partial tests _steady state test_ and _developed turbulent conditions test_, from EddyPro output. (Mauder and Foken, 2006)
+	- applied to: all fluxes
+	- Example output from diive for NEE (in this step still called `FC`): 
+	  ```
+	  SSITC TEST: Generated new flag variable FLAG_L2_FC_SSITC_TEST, values taken from output variable FC_SSITC_TEST ...
+	  ```
+- **Gas completeness** test flag: Check completeness of the variable that was used to calculate the respective flux, calculated in diive. (Sabbatini et al., 2018)
+	- applied to: all fluxes
+	- Example output from diive for NEE (in this step still called `FC`): 
+	  ```
+	  FLUX BASE VARIABLE COMPLETENESS TEST: Generated new flag variable FLAG_L2_FC_COMPLETENESS_TEST, newly calculated from variable CO2, with flag 0 (good values) where available number of records for CO2 >= 0.99, flag 1 (ok values) >= 0.97 and < 0.99, flag 2 (bad values) < 0.97...
+	  ```
+- **Spectral correction factor** test flag: using the `SCF` (spectral correction factor) from EddyPro output, then calculated in diive (Sabbatini et al., 2018)
+	- applied to: all fluxes
+	- Example output from diive for NEE (in this step still called `FC`): 
+	  ```
+	  SPECTRAL CORRECTION FACTOR TEST: Generating new flag variable FLAG_L2_FC_SCF_TEST, newly calculated from output variable FC_SCF, withflag 0 (good values) where FC_SCF < 2, flag 1 (ok values) where FC_SCF >= 2 and < 4, flag 2 (bad values) where FC_SCF >= 4...
+	  ```
+- **Signal strength** test flag: for open path IRGAs, this test checks if the instrument's `AGC` (automatic gain control, a measure of signal quality) is above a certain value, whereby high values stand for bad signal (note that for (en)closed path IRGAs it is typically the other way round with high values showing good signal strenth), fluxes where `AGC` was above 90% were discarded. In this case, the name of the custom variable was `CUSTOM_AGC_MEAN` and part of the EddyPro output files, the flag was then calculated in diive.
+	- applied to: open path IRGA fluxes (CO<sub>2</sub>, H<sub>2</sub>O, H)
+	- Note that the water fluxes `LE` and `ET` are direct conversions of the calculated H<sub>2</sub>O flux
+	- Example output from diive for NEE (in this step still called `FC`): 
+	  ```
+	  SIGNAL STRENGTH TEST: Generating new flag variable FLAG_L2_FC_SIGNAL_STRENGTH_TEST, newly calculated from output variable CUSTOM_AGC_MEAN, with flag 0 (good values) where CUSTOM_AGC_MEAN <= 90, flag 2 (bad values) where CUSTOM_AGC_MEAN > 90 ...
+	  ```
+- **Raw data screening** test flags (multiple): applied results from the EddyPro output file for spikes, amplitude and drop-outs, see also the official EddyPro help for more info [here](https://www.licor.com/support/EddyPro/topics/despiking-raw-statistical-screening.html). (Vickers and Mahrt, 1997)
+	- applied to: all fluxes
+	- Example output from diive for NEE (in this step still called `FC`): 
+	  ```
+	  RAW DATA TEST: Generated new flag variable FLAG_L2_FC_CO2_VM97_SPIKE_HF_TEST, values taken from output variable CO2_VM97_TEST from position 1, based on CO2, with flag 0 (good values) where test passed, flag 2 (bad values) where test failed (for hard flags) or flag 1 (ok values) where test failed (for soft flags) ...
+	  ```
+	
+	  ```
+	  RAW DATA TEST: Generated new flag variable FLAG_L2_FC_CO2_VM97_AMPLITUDE_RESOLUTION_HF_TEST, values taken from output variable CO2_VM97_TEST from position 2, based on CO2, with flag 0 (good values) where test passed, flag 2 (bad values) where test failed (for hard flags) or flag 1 (ok values) where test failed (for soft flags) ...
+	  ```
+
+	  ```
+	  RAW DATA TEST: Generated new flag variable FLAG_L2_FC_CO2_VM97_DROPOUT_TEST, values taken from output variable CO2_VM97_TEST from position 3, based on CO2, with flag 0 (good values) where test passed, flag 2 (bad values) where test failed (for hard flags) or flag 1 (ok values) where test failed (for soft flags) ...
+	  ```
+
+- **Angle-of-attack (AoA) flag** was applied between `2008-01-01` and `2010-01-01`, and between `2016-03-01` and `2016-05-01`. All time periods when the flag indicated issues with AoA were flagged as bad data. Normally not applied by default, but in this case there were time periods when the sonic's vertical wind velocity produced unrealistic wind values. 
+	- applied to: all fluxes
+	- Note: for flux calculations, the setting in EddyPro was relaxed and accepted minimum and maximum angles of attack of `-35°` and `+35°`, respectively, instead of the default `-30°` and `+30°`. Reason: this test is relatively strict and removes many data points, however, based on tests from another group the relaxed settings seemed defensible, especially since this flag was only applied to obviously flawed time periods.
+	- Example output from diive for NEE (in this step still called `FC`): 
+	  ```
+	  ANGLE OF ATTACK TEST: will be applied on the following dates only: [['2008-01-01', '2010-01-01'], ['2016-03-01', '2016-05-01']]
+	  ANGLE OF ATTACK TEST: Generated new flag variable FLAG_L2_FC_VM97_AOA_HF_TEST, values taken from output variable None, with flag 0 (good values) where test passed, flag 2 (bad values) where test failed ...
+	  ```
+
+## Overall quality flag `QCF` after Level-2 tests
+- After individual quality tests were run, the single flags are combined into the overall `QCF` flag.
+- The flags are summed together, and records where the sum is >= 2 get the overall `QCF` flag 2.
+- Generally, all records with `QCF` >= 2 are considered bad data.
+- This was done for all fluxes, however, for NEE the requirements were stricter during the nighttime than during the daytime. For NEE, daytime `QCF` flags of 0 and 1 were accepted (flag 2 = bad data), but during nighttime only `QCF` flags with 0 were retained (flags 1 and 2 = bad data). For all other fluxes, `QCF` flags of 0 and 1 were accepted during daytime and nighttime (flag 2 = bad data).
+- The overall flag after Level-2 is named `FLAG_L2_<flux>_QCF`, whereby `<flux>` is the respective flux, e.g., `FC`, `LE`, `H`, `FN2O`, `FCH4`.
+- Example output from diive for NEE (in this step still called `FC`): 
+```
+========================================
+QCF FLAG EVOLUTION
+========================================
+This output shows the evolution of the QCF overall quality flag
+when test flags are applied sequentially to the variable FC.
+
+Number of FC records before QC: 295350
++++ FLAG_L2_FC_MISSING_TEST rejected 0 values (+0.00%)      TOTALS: flag 0: 295350 (100.00%) / flag 1: 0 (0.00%) / flag 2: 0 (0.00%)
++++ FLAG_L2_FC_SSITC_TEST rejected 133899 values (+45.34%)      TOTALS: flag 0: 115080 (38.96%) / flag 1: 46371 (15.70%) / flag 2: 133899 (45.34%)
++++ FLAG_L2_FC_COMPLETENESS_TEST rejected 690 values (+0.23%)      TOTALS: flag 0: 114423 (38.74%) / flag 1: 46338 (15.69%) / flag 2: 134589 (45.57%)
++++ FLAG_L2_FC_SCF_TEST rejected 194 values (+0.07%)      TOTALS: flag 0: 114201 (38.67%) / flag 1: 46366 (15.70%) / flag 2: 134783 (45.64%)
++++ FLAG_L2_FC_SIGNAL_STRENGTH_TEST rejected 9808 values (+3.32%)      TOTALS: flag 0: 110029 (37.25%) / flag 1: 40730 (13.79%) / flag 2: 144591 (48.96%)
++++ FLAG_L2_FC_CO2_VM97_SPIKE_HF_TEST rejected 942 values (+0.32%)      TOTALS: flag 0: 109335 (37.02%) / flag 1: 40482 (13.71%) / flag 2: 145533 (49.27%)
++++ FLAG_L2_FC_CO2_VM97_AMPLITUDE_RESOLUTION_HF_TEST rejected 3826 values (+1.30%)      TOTALS: flag 0: 106807 (36.16%) / flag 1: 39184 (13.27%) / flag 2: 149359 (50.57%)
++++ FLAG_L2_FC_CO2_VM97_DROPOUT_TEST rejected 0 values (+0.00%)      TOTALS: flag 0: 106807 (36.16%) / flag 1: 39184 (13.27%) / flag 2: 149359 (50.57%)
++++ FLAG_L2_FC_VM97_AOA_HF_TEST rejected 2607 values (+0.88%)      TOTALS: flag 0: 105860 (35.84%) / flag 1: 37524 (12.70%) / flag 2: 151966 (51.45%)
+
+In total, 151966 (51.45%) of the available records were rejected in this step.
+INFO Rejected DAYTIME records where QCF flag >= 2
+INFO Rejected NIGHTTIME records where QCF flag >= 1
+```
+
+```
+========================================
+SUMMARY: FLAG_L2_FC_QCF, QCF FLAG FOR FC
+========================================
+Between 2005-01-01 00:15 and 2024-12-31 23:45 ...
+    Total flux records BEFORE quality checks: 295350 (84.23% of potential)
+    Available flux records AFTER quality checks: 143384 (48.55% of total)
+    Rejected flux records: 151966 (51.45% of total)
+    Potential flux records: 350640
+    Potential flux records missed: 55290 (15.77% of potential)
+```
+
+# Level 3.1: Storage correction
 
 - Added storage term from single point measurement to the respective flux
 - Storage-corrected fluxes are: `NEE_L3.1` (from `FC`), `LE_L3.1` (from `LE`), `H_L3.1` (from `H`), `FN2O_L3.1` (from `FN2O`), `FCH4_L3.1` (from `FCH4`)
 - The suffix `_L3.1` is added to all fluxes to make it clear that the respective flux is storage corrected. Only for `NEE` it is clear that it is the storage-corrected flux because the name changes from `FC` to `NEE` after the correction, but all other variables do not have such a name change, thus the suffix.
 
-### Level 3.2: Outlier removal
+# Level 3.2: Outlier removal
 
 - Absolute limits: XXX
 
-### Level 3.3: USTAR filtering
+# Level 3.3: USTAR filtering
 
 - Remove fluxes during time periods of low turbulence
 - Fluxes filtered with USTAR threshold: `NEE`, `FN2O`, `FCH4`
@@ -31,9 +130,9 @@
     - The two other scenarios use a slightly lower and higher threshold.
 - The USTAR threshold found for `NEE` was also applied to `FN2O` and `FCH4`
 
-### Level 4.1: Gap-filling
+# Level 4.1: Gap-filling
 
-#### Random forest
+## Random forest
 
 - All fluxes were gap-filled using the class `LongTermGapFillingRandomForestTS` from [diive](https://github.com/holukas/diive/tree/main)
 - This class builds a random forest model for each year, trained on data of the respective year and the two closest/neighboring years
@@ -41,7 +140,7 @@
 - Features (predictors):
     - XXX
 
-### Level 4.2: NEE Partitioning (planned)
+# Level 4.2: NEE Partitioning (planned)
 
 - _in progress_
 - Nighttime method based on Reichstein et al (2005)
