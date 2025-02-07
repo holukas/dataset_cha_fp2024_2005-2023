@@ -2,7 +2,7 @@
 
 ```mermaid
 flowchart LR
-	L1 --> d --> L2
+	L1[Level-1 fluxes] --> d[quality flag expansion] --> L2[Level-2 quality flags] --> QCF[Level-2 overall quality flag QCF]
 ```
 
 ## General
