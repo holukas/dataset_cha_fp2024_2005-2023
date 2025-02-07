@@ -1,12 +1,18 @@
-# Level 2: Quality flag expansion
+# Flux Post-processing
+
+- Post-processing follow the [Swiss Fluxnet Flux Processing Chain](https://www.swissfluxnet.ethz.ch/index.php/data/ecosystem-fluxes/flux-processing-chain/)
+
+## Level 2: Quality flag expansion
 
 ```mermaid
 flowchart LR
 	L1[Level-1 fluxes] --> d[quality flag expansion] --> L2[Level-2 quality flags] --> QCF[Level-2 overall quality flag QCF]
 ```
 
-## General
+### General
 
+- Based on Level-1 (final) flux calculations
+- Builds upon flux results (*_fluxnet_* files) from EddyPro
 - The `SSITC` flag from EddyPro is expanded with results from additional quality flags.
 - All individual quality flags are combined into one overall quality flag `QCF`.
 - The `QCF` flag uses a `0-1-2` system, where
@@ -14,7 +20,7 @@ flowchart LR
 	- `1` = medium quality data
 	- `2` = bad quality data, reject in all cases
 
-## Individual flags
+### Individual flags
 *See notebooks for more details*
 - **SSITC** test flag: Combination of the two partial tests _steady state test_ and _developed turbulent conditions test_, from EddyPro output. (Mauder and Foken, 2006)
 	- applied to: all fluxes
@@ -35,7 +41,7 @@ flowchart LR
 	  SPECTRAL CORRECTION FACTOR TEST: Generating new flag variable FLAG_L2_FC_SCF_TEST, newly calculated from output variable FC_SCF, withflag 0 (good values) where FC_SCF < 2, flag 1 (ok values) where FC_SCF >= 2 and < 4, flag 2 (bad values) where FC_SCF >= 4...
 	  ```
 - **Signal strength** test flag: for open path IRGAs, this test checks if the instrument's `AGC` (automatic gain control, a measure of signal quality) is above a certain value, whereby high values stand for bad signal (note that for (en)closed path IRGAs it is typically the other way round with high values showing good signal strenth), fluxes where `AGC` was above 90% were discarded. In this case, the name of the custom variable was `CUSTOM_AGC_MEAN` and part of the EddyPro output files, the flag was then calculated in diive.
-	- applied to: open path IRGA fluxes (CO<sub>2</sub>, H<sub>2</sub>O, H)
+	- applied to: open path IRGA fluxes (CO<sub>2</sub>, H<sub>2</sub>O)
 	- Note that the water fluxes `LE` and `ET` are direct conversions of the calculated H<sub>2</sub>O flux
 	- Example output from diive for NEE (in this step still called `FC`): 
 	  ```
@@ -65,7 +71,7 @@ flowchart LR
 	  ANGLE OF ATTACK TEST: Generated new flag variable FLAG_L2_FC_VM97_AOA_HF_TEST, values taken from output variable None, with flag 0 (good values) where test passed, flag 2 (bad values) where test failed ...
 	  ```
 
-## Overall quality flag `QCF` after Level-2 tests
+### Overall quality flag `QCF` after Level-2 tests
 - After individual quality tests were run, the single flags are combined into the overall `QCF` flag.
 - The flags are summed together, and records where the sum is >= 2 get the overall `QCF` flag 2.
 - Generally, all records with `QCF` >= 2 are considered bad data.
@@ -107,17 +113,17 @@ Between 2005-01-01 00:15 and 2024-12-31 23:45 ...
     Potential flux records missed: 55290 (15.77% of potential)
 ```
 
-# Level 3.1: Storage correction
+## Level 3.1: Storage correction
 
 - Added storage term from single point measurement to the respective flux
 - Storage-corrected fluxes are: `NEE_L3.1` (from `FC`), `LE_L3.1` (from `LE`), `H_L3.1` (from `H`), `FN2O_L3.1` (from `FN2O`), `FCH4_L3.1` (from `FCH4`)
 - The suffix `_L3.1` is added to all fluxes to make it clear that the respective flux is storage corrected. Only for `NEE` it is clear that it is the storage-corrected flux because the name changes from `FC` to `NEE` after the correction, but all other variables do not have such a name change, thus the suffix.
 
-# Level 3.2: Outlier removal
+## Level 3.2: Outlier removal
 
 - Absolute limits: XXX
 
-# Level 3.3: USTAR filtering
+## Level 3.3: USTAR filtering
 
 - Remove fluxes during time periods of low turbulence
 - Fluxes filtered with USTAR threshold: `NEE`, `FN2O`, `FCH4`
@@ -135,9 +141,9 @@ Between 2005-01-01 00:15 and 2024-12-31 23:45 ...
     - The two other scenarios use a slightly lower and higher threshold.
 - The USTAR threshold found for `NEE` was also applied to `FN2O` and `FCH4`
 
-# Level 4.1: Gap-filling
+## Level 4.1: Gap-filling
 
-## Random forest
+### Random forest
 
 - All fluxes were gap-filled using the class `LongTermGapFillingRandomForestTS` from [diive](https://github.com/holukas/diive/tree/main)
 - This class builds a random forest model for each year, trained on data of the respective year and the two closest/neighboring years
@@ -145,7 +151,7 @@ Between 2005-01-01 00:15 and 2024-12-31 23:45 ...
 - Features (predictors):
     - XXX
 
-# Level 4.2: NEE Partitioning (planned)
+## Level 4.2: NEE Partitioning (planned)
 
 - _in progress_
 - Nighttime method based on Reichstein et al (2005)

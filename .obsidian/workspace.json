@@ -208,6 +208,8 @@
   },
   "active": "1b429a138060877d",
   "lastOpenFiles": [
+    "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.0_FluxProcessingChain_L3.3_FN2O_QCF11-Copy1.ipynb",
+    "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/52.0_FluxProcessingChain_L3.3_FCH4_QCF11-Copy1.ipynb",
     "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.7_CorrectionGapFilling_L4.1_FN2O_CUT165084.parquet",
     "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.7_CorrectionGapFilling_L4.1_FN2O_CUT165084.csv",
     "docs/References.md",
@@ -225,8 +227,6 @@
     "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.3_CorrectionGapFilling_L4.1_FN2O_CUT_50.parquet",
     "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.3_CorrectionGapFilling_L4.1_FN2O_CUT_50.csv",
     "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.4_CorrectionGapFilling_FN2O_CUT16.ipynb",
-    "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.2_CorrectionGapFilling_FN2O_CUT50-Copy1.ipynb",
-    "notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.3_FluxProcessingChain_L4.1_FN2O_CUT_50.parquet",
     "README.md",
     "notebooks/README.md",
     "docs.md",
