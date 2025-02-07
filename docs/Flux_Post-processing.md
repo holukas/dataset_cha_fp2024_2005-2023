@@ -1,5 +1,10 @@
 # Level 2: Quality flag expansion
 
+```mermaid
+flowchart LR
+	L1 --> d --> L2
+```
+
 ## General
 
 - The `SSITC` flag from EddyPro is expanded with results from additional quality flags.
