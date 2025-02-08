@@ -115,9 +115,46 @@ Between 2005-01-01 00:15 and 2024-12-31 23:45 ...
 
 ## Level 3.1: Storage correction
 
-- Added storage term from single point measurement to the respective flux
+```mermaid
+flowchart LR
+	L1[Level-1 fluxes] --> e[add storage term] --> L3[Level-3.1 fluxes]
+```
+
+- Added storage term from *single point measurement* to the respective flux
+- The storage term was calculated by EddyPro during flux calculations (Level-1)
 - Storage-corrected fluxes are: `NEE_L3.1` (from `FC`), `LE_L3.1` (from `LE`), `H_L3.1` (from `H`), `FN2O_L3.1` (from `FN2O`), `FCH4_L3.1` (from `FCH4`)
 - The suffix `_L3.1` is added to all fluxes to make it clear that the respective flux is storage corrected. Only for `NEE` it is clear that it is the storage-corrected flux because the name changes from `FC` to `NEE` after the correction, but all other variables do not have such a name change, thus the suffix.
+- Note that the overall quality flag from Level-2 is not used here
+- Example output from diive for NEE (in this step still called `FC`): 
+```
+========================================
+REPORT: STORAGE CORRECTION FOR FC
+========================================
+Swiss FluxNet processing chain, _L3.1: Storage Correction
+
+The gap-filled storage term SC_SINGLE_gfRMED_L3.1 was added to flux FC.
+The storage-corrected flux was stored as NEE_L3.1.
+
+The flux was available for 295350 records (FC).
+The original, non-gapfilled storage term was available for 290861 records (SC_SINGLE).
+The original storage term SC_SINGLE was missing for 7259 flux records.
+Without gap-filling the storage term (SC_SINGLE), 7259 measured flux records (FC) are lost.
+
+For this run, gap-filling of SC_SINGLE was * SELECTED *.
+After gap-filling the storage term, it was available for an additional 7259 records (SC_SINGLE_gfRMED_L3.1).
+
+In the storage-corrected flux NEE_L3.1 with 295350 records, 
+  - 97.5% (290861 records) of used storage terms come from originally calculated data (SC_SINGLE)
+  - 2.5% (7259 records) of used storage terms come from gap-filled data (SC_SINGLE_gfRMED_L3.1)
+
+Stats for gap-filled storage terms:
+                        NOV       P01    MEDIAN       P99
+SC_SINGLE_gfRMED_L3.1  7259 -8.395369 -0.167553  6.810566
+
+Stats for measured storage terms:
+                          NOV       P01    MEDIAN       P99
+SC_SINGLE_gfRMED_L3.1  288091 -7.555871 -0.015403  6.739739
+```
 
 ## Level 3.2: Outlier removal
 
