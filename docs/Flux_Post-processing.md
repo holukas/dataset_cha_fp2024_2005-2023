@@ -125,7 +125,7 @@ flowchart LR
 - Storage-corrected fluxes are: `NEE_L3.1` (from `FC`), `LE_L3.1` (from `LE`), `H_L3.1` (from `H`), `FN2O_L3.1` (from `FN2O`), `FCH4_L3.1` (from `FCH4`)
 - The suffix `_L3.1` is added to all fluxes to make it clear that the respective flux is storage corrected. Only for `NEE` it is clear that it is the storage-corrected flux because the name changes from `FC` to `NEE` after the correction, but all other variables do not have such a name change, thus the suffix.
 - Note that the overall quality flag from Level-2 is not used here
-- Example output from diive for NEE (in this step still called `FC`): 
+- Example output from diive for NEE (in this step still called `FC`, after the storage correction this becomes `NEE_L3.1`): 
 ```
 ========================================
 REPORT: STORAGE CORRECTION FOR FC
