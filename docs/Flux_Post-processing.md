@@ -2,6 +2,12 @@
 
 - Post-processing follow the [Swiss Fluxnet Flux Processing Chain](https://www.swissfluxnet.ethz.ch/index.php/data/ecosystem-fluxes/flux-processing-chain/)
 
+## Overview
+
+- **Level-2** creates additional quality flags that are then combined to one overall quality flag `QCF` (quality control flag)
+- **Level-3.1** adds the storage term to the respective flux
+- **Level-3.2** detects outliers and creates additional quality flags
+
 ## Level 2: Quality flag expansion
 
 ```mermaid
@@ -11,6 +17,7 @@ flowchart LR
 
 ### General
 
+- **Level-2 creates additional quality flags.**
 - Based on Level-1 (final) flux calculations
 - Builds upon flux results (*_fluxnet_* files) from EddyPro
 - The `SSITC` flag from EddyPro is expanded with results from additional quality flags.
@@ -73,7 +80,7 @@ flowchart LR
 
 ### Overall quality flag `QCF` after Level-2 tests
 - After individual quality tests were run, the single flags are combined into the overall `QCF` flag.
-- The flags are summed together, and records where the sum is >= 2 get the overall `QCF` flag 2.
+- The individual flags are summed together, and records where the sum is >= 2 get the overall `QCF` flag 2.
 - Generally, all records with `QCF` >= 2 are considered bad data.
 - This was done for all fluxes, however, for NEE the requirements were stricter during the nighttime than during the daytime. For NEE, daytime `QCF` flags of 0 and 1 were accepted (flag 2 = bad data), but during nighttime only `QCF` flags with 0 were retained (flags 1 and 2 = bad data). For all other fluxes, `QCF` flags of 0 and 1 were accepted during daytime and nighttime (flag 2 = bad data).
 - The overall flag after Level-2 is named `FLAG_L2_<flux>_QCF`, whereby `<flux>` is the respective flux, e.g., `FC`, `LE`, `H`, `FN2O`, `FCH4`.
@@ -120,6 +127,7 @@ flowchart LR
 	L1[Level-1 fluxes] --> e[add storage term] --> L3[Level-3.1 fluxes]
 ```
 
+- **Level-3.1 calculates storage-corrected fluxes.**
 - Added storage term from *single point measurement* to the respective flux
 - The storage term was calculated by EddyPro during flux calculations (Level-1)
 - Storage-corrected fluxes are: `NEE_L3.1` (from `FC`), `LE_L3.1` (from `LE`), `H_L3.1` (from `H`), `FN2O_L3.1` (from `FN2O`), `FCH4_L3.1` (from `FCH4`)
@@ -158,7 +166,52 @@ SC_SINGLE_gfRMED_L3.1  288091 -7.555871 -0.015403  6.739739
 
 ## Level 3.2: Outlier removal
 
-- Absolute limits: XXX
+```mermaid
+
+flowchart LR
+	L2[Level-2 QCF]
+	L31[Level-3.1 fluxes]
+	L31f[filtered Level-3.1 fluxes]
+	L32[Level-3.2 outlier flags]
+	
+	L2 -- apply flag to --> L31 --> L31f
+	--> L32
+	
+```
+
+- **Level-3.2 creates additional quality flags.**
+- The overall quality flag `QCF` from Level-2 is applied to Level-3.1 fluxes to remove fluxes of low quality before outlier detection. This is a *temporary* application for outlier removal detection only. This way the outlier removal functions do not take into account values that were already flagged for removal in Level-2.
+
+Generally, the following outlier tests were used. The tests were run sequentially, so that results from one test were based on results from the previous test.
+
+### Description of outlier functions
+
+- **Absolute limits**: flag values outside a physically plausible range. 
+- **Manual flag**: flag specific time periods, e.g., due to known instrument failure
+- **Hampel filter**, separate for daytime and nighttime. The Hampel filter identifies anomalies in time-series data using a sliding window of adjustable size. Within each window, it compares each data point to the Median Absolute Deviation (MAD). Points exceeding the MAD by a specified multiple (adjustable) are flagged as outliers.
+- **Local standard deviation**, with rolling median and _constant_ standard deviation (SD). SD was calculated across all data and then used in combination with the rolling window.
+
+### Outlier detection settings
+
+Outlier methods are given for each flux in the order of sequential application.
+
+#### NEE
+1. **Absolute limits**: flag data outside `[-50, 50]`
+2. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
+3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). This test worked well for NEE.
+4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=3.5` and `winsize=48*13`.
+
+#### LE
+1. TODO
+
+#### H
+1. TODO
+
+#### FN2O
+1. TODO
+
+#### FCH4
+1. TODO
 
 ## Level 3.3: USTAR filtering
 
