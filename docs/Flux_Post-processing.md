@@ -297,8 +297,54 @@ Units: nmol CH<sub>4</sub> m<sup>-2</sup> s<sup>-1</sup>
 - All fluxes were gap-filled using the class `LongTermGapFillingRandomForestTS` from [diive](https://github.com/holukas/diive/tree/main)
 - This class builds a random forest model for each year, trained on data of the respective year and the two closest/neighboring years
 - For example: for gap-filling 2015, the model was trained on 2014, 2015 and 2016. For 2005 (the very first year for FC fluxes), the two closest years were used, i.e., the model was trained on 2005, 2006 and 2007. Likewise, for the very last year, the model was trained on data from the last year and the two preceding years.
-- Features (predictors):
-    - XXX
+- Generally used random forest settings: `n_estimators`: 500, `random_state`: 42, `min_samples_split`: 2, `min_samples_leaf`: 1, default settings were used for all other parameters, see [here](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html).
+#### Features (predictors)
+- Variables used as features in training the random forest models.
+- In addition to features listed below, timestamp info was included as additional features:
+```
+++ Added new columns with timestamp info: ['.YEAR', '.SEASON', '.MONTH', '.WEEK', '.DOY', '.HOUR', '.YEARMONTH', '.YEARDOY', '.YEARWEEK']
+```
+- **Lagged variants** were calculated for `SW_IN_T1_2_1`, `TA_T1_2_1`, `VPD_T1_2_1` and all variables listed in  `METEO_VARS` (see below).
+- Feature importances were calculated as **permutation importance**: Permutation feature importance assesses feature contributions to a model's performance. It works by randomly shuffling a feature's values, observing the resulting performance drop. This reveals how much the model relies on that feature.
+- **Feature reduction**: Feature reduction was performed by comparing feature importances to a random variable (`.RANDOM`), which consisted of random numbers (floats) between 0 and 1. Features with importance below `.RANDOM`'s were discarded. To ensure consistency across yearly models, a feature was only removed if it was deemed unimportant in _all_ yearly models. A feature was retained if it was deemed important in at least one model.
+
+##### NEE, LE, H
+```
+MGMT_VARS = [
+"TIMESINCE_MGMT_FERT_MIN_FOOTPRINT", "TIMESINCE_MGMT_FERT_ORG_FOOTPRINT", "TIMESINCE_MGMT_GRAZING_FOOTPRINT", "TIMESINCE_MGMT_MOWING_FOOTPRINT", "TIMESINCE_MGMT_SOILCULTIVATION_FOOTPRINT", "TIMESINCE_MGMT_SOWING_FOOTPRINT", "TIMESINCE_MGMT_PESTICIDE_HERBICIDE_FOOTPRINT"]
+
+FEATURES = [
+"SW_IN_T1_2_1", "TA_T1_2_1", "VPD_T1_2_1"] + MGMT_VARS
+```
+##### FN2O, FCH4
+```
+# Management variables (also includes time since PRECIP)
+MGMT_VARS = [
+"TIMESINCE_MGMT_FERT_MIN_FOOTPRINT", "TIMESINCE_MGMT_FERT_ORG_FOOTPRINT",   "TIMESINCE_MGMT_GRAZING_FOOTPRINT", "TIMESINCE_MGMT_MOWING_FOOTPRINT",
+"TIMESINCE_MGMT_SOILCULTIVATION_FOOTPRINT", "TIMESINCE_MGMT_SOWING_FOOTPRINT",
+"TIMESINCE_MGMT_PESTICIDE_HERBICIDE_FOOTPRINT", "TIMESINCE_PREC_RAIN_TOT_GF1_0.5_1"
+]
+
+# Already lagged variants of SWC, TS and PRECIP
+AGG_VARS = [
+
+# SWC
+"SWC_GF1_0.15_1_gfXG_MEAN3H", ".SWC_GF1_0.15_1_gfXG_MEAN3H-24", ".SWC_GF1_0.15_1_gfXG_MEAN3H-18", ".SWC_GF1_0.15_1_gfXG_MEAN3H-12", ".SWC_GF1_0.15_1_gfXG_MEAN3H-6",
+
+# TS
+"TS_GF1_0.04_1_gfXG_MEAN3H", ".TS_GF1_0.04_1_gfXG_MEAN3H-24", ".TS_GF1_0.04_1_gfXG_MEAN3H-18", ".TS_GF1_0.04_1_gfXG_MEAN3H-12", ".TS_GF1_0.04_1_gfXG_MEAN3H-6", "TS_GF1_0.15_1_gfXG_MEAN3H",   ".TS_GF1_0.15_1_gfXG_MEAN3H-24", ".TS_GF1_0.15_1_gfXG_MEAN3H-18",   ".TS_GF1_0.15_1_gfXG_MEAN3H-12", ".TS_GF1_0.15_1_gfXG_MEAN3H-6",
+"TS_GF1_0.4_1_gfXG_MEAN3H", ".TS_GF1_0.4_1_gfXG_MEAN3H-24", ".TS_GF1_0.4_1_gfXG_MEAN3H-18", ".TS_GF1_0.4_1_gfXG_MEAN3H-12", ".TS_GF1_0.4_1_gfXG_MEAN3H-6",
+
+# PRECIP
+"PREC_RAIN_TOT_GF1_0.5_1_MEAN3H", ".PREC_RAIN_TOT_GF1_0.5_1_MEAN3H-24", ".PREC_RAIN_TOT_GF1_0.5_1_MEAN3H-18", ".PREC_RAIN_TOT_GF1_0.5_1_MEAN3H-12", ".PREC_RAIN_TOT_GF1_0.5_1_MEAN3H-6"
+]
+
+METEO_VARS = [
+"TS_GF1_0.04_1_gfXG", "TS_GF1_0.15_1_gfXG", "TS_GF1_0.4_1_gfXG", "SWC_GF1_0.15_1_gfXG", "PREC_RAIN_TOT_GF1_0.5_1"
+]
+
+FEATURES = METEO_VARS + AGG_VARS + MGMT_VARS
+```
 
 ## Level 4.2: NEE Partitioning (planned)
 
