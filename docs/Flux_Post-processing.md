@@ -42,6 +42,13 @@ L41F -- partitioning (NEE) --> L42F
 - **Level-4.1** performs gap-filling (long-term random forest)
 - (planned) **Level-4.2** partitions NEE fluxes into GPP and RECO
 
+## Flux processing chain notebooks
+- NEE: [41.0_FluxProcessingChain_L3.3_NEE_QCF10.ipynb](../notebooks/40_FLUX_PROCESSING_CHAIN/41.0_FluxProcessingChain_L3.3_NEE_QCF10.ipynb)
+- LE: [42.0_FluxProcessingChain_L3.3_LE_QCF11.ipynb](../notebooks/40_FLUX_PROCESSING_CHAIN/42.0_FluxProcessingChain_L3.3_LE_QCF11.ipynb)
+- H: [43.0_FluxProcessingChain_L3.3_H_QCF11.ipynb](../notebooks/40_FLUX_PROCESSING_CHAIN/43.0_FluxProcessingChain_L3.3_H_QCF11.ipynb)
+- N2O flux: [51.0_FluxProcessingChain_L3.3_FN2O_QCF11.ipynb](../notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/51.0_FluxProcessingChain_L3.3_FN2O_QCF11.ipynb)
+- CH4 flux: [52.0_FluxProcessingChain_L3.3_FCH4_QCF11.ipynb](../notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/52.0_FluxProcessingChain_L3.3_FCH4_QCF11.ipynb)
+
 ## Level 2: Quality flag expansion
 
 ```mermaid
@@ -231,32 +238,36 @@ Generally, the following outlier tests were used. The tests were run sequentiall
 
 Outlier methods are given for each flux in the order of sequential application.
 
-#### NEE (µmol CO<sub>2</sub> m<sup>-2</sup> s<sup>-1</sup>)
+#### NEE (net ecosystem exchange of CO<sub>2</sub>)
+Units: µmol CO<sub>2</sub> m<sup>-2</sup> s<sup>-1</sup>
 1. **Absolute limits**: flag data outside `[-50, 50]`
 2. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
 3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). This test worked well for NEE. Test repeated until all outliers removed.
 4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=3.5` and `winsize=48*13`. Test repeated until all outliers removed.
 
-#### LE (latent heat, W m<sup>-2</sup>)
+#### LE (latent heat)
+Units: W m<sup>-2</sup>
 1. **Absolute limits**: flag data outside `[-50, 800]`
 2. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
 3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). Test repeated until all outliers removed.
 4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=4.5` and `winsize=48*13`. Test repeated until all outliers removed.
 5. **Local outlier factor**, separate for daytime and nighttime with the settings `n_neighbors=50` and `contamination=None`. Test not repeated, only run once.
 
-#### H (sensible heat, W m<sup>-2</sup>)
-6. **Absolute limits**: flag data outside `[-200, 400]`
-7. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
-8. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). Test repeated until all outliers removed.
-9. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=5` and `winsize=48*13`. Test repeated until all outliers removed.
+#### H (sensible heat)
+Units: W m<sup>-2</sup>
+1. **Absolute limits**: flag data outside `[-200, 400]`
+2. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
+3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). Test repeated until all outliers removed.
+4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=5` and `winsize=48*13`. Test repeated until all outliers removed.
 
-#### FN2O (nitrous oxide flux, nmol N<sub>2</sub>O m<sup>-2</sup> s<sup>-1</sup>)
-10. **Absolute limits**: flag data outside `[-5, 70]`
-11. **Rolling z-score**, with the settings `winsize=48*3` and `thres_zscore=10`. Test repeated until all outliers removed.
-12. **Local standard deviation**, with rolling median and _rolling_ standard deviation with the settings `n_sd=8` and `winsize=48*3`. Test repeated until all outliers removed.
+#### FN2O (nitrous oxide flux)
+Units: nmol N<sub>2</sub>O m<sup>-2</sup> s<sup>-1</sup>
+1. **Absolute limits**: flag data outside `[-5, 70]`
+2. **Rolling z-score**, with the settings `winsize=48*3` and `thres_zscore=10`. Test repeated until all outliers removed.
+3. **Local standard deviation**, with rolling median and _rolling_ standard deviation with the settings `n_sd=8` and `winsize=48*3`. Test repeated until all outliers removed.
 
-#### FCH4 (methane flux, nmol CH<sub>4</sub> m<sup>-2</sup> s<sup>-1</sup>)
-Link to notebook: [52.0_FluxProcessingChain_L3.3_FCH4_QCF11.ipynb](../notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/52.0_FluxProcessingChain_L3.3_FCH4_QCF11.ipynb)
+#### FCH4 (methane flux)
+Units: nmol CH<sub>4</sub> m<sup>-2</sup> s<sup>-1</sup>
 1. **Absolute limits**: flag data outside `[-100, 1100]`
 2. **Rolling z-score**, with the settings `winsize=48*3` and `thres_zscore=8`. Test repeated until all outliers removed. 
 3. **Local standard deviation**, with rolling median and _rolling_ standard deviation with the settings `n_sd=7` and `winsize=48*3`. Test repeated until all outliers removed.
