@@ -1,12 +1,46 @@
 # Flux Post-processing
 
-- Post-processing follow the [Swiss Fluxnet Flux Processing Chain](https://www.swissfluxnet.ethz.ch/index.php/data/ecosystem-fluxes/flux-processing-chain/)
+- Post-processing follows the [Swiss Fluxnet Flux Processing Chain](https://www.swissfluxnet.ethz.ch/index.php/data/ecosystem-fluxes/flux-processing-chain/)
 
 ## Overview
+
+```mermaid
+flowchart
+L1F[L1 fluxes]
+L2QCF[L2 quality flags]
+L31F[L3.1 fluxes]
+L31Ffiltered[L3.1 fluxes filtered]
+L32QCF[L3.2 quality flags]
+L33QCF[L3.3 quality flags]
+QCF[overall quality flag QCF]
+L31FfilteredQCF[L3.1 fluxes filtered with QCF]
+L41F[L4.1 gap-filled fluxes]
+L42F[L4.2 partitioned fluxes]
+
+L1F --> L2QCF
+L2QCF --> L31Ffiltered
+L1F --> L31F
+L31F --> L31Ffiltered
+L31Ffiltered --> L32QCF
+L1F --> L33QCF
+
+L2QCF --> QCF
+L32QCF --> QCF
+L33QCF --> QCF
+
+QCF -- applied to storage-corrected fluxes --> L31FfilteredQCF
+L31FfilteredQCF -- gap-filling --> L41F
+
+L41F -- partitioning (NEE) --> L42F
+
+```
 
 - **Level-2** creates additional quality flags that are then combined to one overall quality flag `QCF` (quality control flag)
 - **Level-3.1** adds the storage term to the respective flux
 - **Level-3.2** detects outliers and creates additional quality flags
+- **Level-3.3** creates additional quality flags based on three different constant USTAR thresholds, previously detected by FLUXNET (Pastorello et al., 2020)
+- **Level-4.1** performs gap-filling (long-term random forest)
+- (planned) **Level-4.2** partitions NEE fluxes into GPP and RECO
 
 ## Level 2: Quality flag expansion
 
@@ -190,28 +224,42 @@ Generally, the following outlier tests were used. The tests were run sequentiall
 - **Manual flag**: flag specific time periods, e.g., due to known instrument failure
 - **Hampel filter**, separate for daytime and nighttime. The Hampel filter identifies anomalies in time-series data using a sliding window of adjustable size. Within each window, it compares each data point to the Median Absolute Deviation (MAD). Points exceeding the MAD by a specified multiple (adjustable) are flagged as outliers.
 - **Local standard deviation**, with rolling median and _constant_ standard deviation (SD). SD was calculated across all data and then used in combination with the rolling window.
+- **Local outlier factor**, separate for daytime and nighttime. Local Outlier Factor (LOF) is an unsupervised anomaly detection method. It calculates an anomaly score based on the local density deviation of a sample compared to its k-nearest neighbors. Samples with significantly lower density than their neighbors are identified as outliers. See also the official description [here](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.LocalOutlierFactor.html).
+- **Rolling z-score**, identify outliers based on the rolling z-score of records. For each record, the rolling z-score is calculated from the rolling mean and rolling standard deviation, centered on the respective value.
 
 ### Outlier detection settings
 
 Outlier methods are given for each flux in the order of sequential application.
 
-#### NEE
+#### NEE (µmol CO<sub>2</sub> m<sup>-2</sup> s<sup>-1</sup>)
 1. **Absolute limits**: flag data outside `[-50, 50]`
 2. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
-3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). This test worked well for NEE.
-4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=3.5` and `winsize=48*13`.
+3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). This test worked well for NEE. Test repeated until all outliers removed.
+4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=3.5` and `winsize=48*13`. Test repeated until all outliers removed.
 
-#### LE
-1. TODO
+#### LE (latent heat, W m<sup>-2</sup>)
+1. **Absolute limits**: flag data outside `[-50, 800]`
+2. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
+3. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). Test repeated until all outliers removed.
+4. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=4.5` and `winsize=48*13`. Test repeated until all outliers removed.
+5. **Local outlier factor**, separate for daytime and nighttime with the settings `n_neighbors=50` and `contamination=None`. Test not repeated, only run once.
 
-#### H
-1. TODO
+#### H (sensible heat, W m<sup>-2</sup>)
+6. **Absolute limits**: flag data outside `[-200, 400]`
+7. **Manual flag**: flag data between the two dates `['2008-12-01', '2009-05-01']`
+8. **Hampel filter** separate for daytime and nighttime with the settings `window_length=48*13` (corresponds to 13 days of half-hourly data), `n_sigma_dt=3.5` and `n_sigma_nt=3.5` (same n_sigma for daytime and nighttime). Test repeated until all outliers removed.
+9. **Local standard deviation**, with rolling median and _constant_ standard deviation with the settings `n_sd=5` and `winsize=48*13`. Test repeated until all outliers removed.
 
-#### FN2O
-1. TODO
+#### FN2O (nitrous oxide flux, nmol N<sub>2</sub>O m<sup>-2</sup> s<sup>-1</sup>)
+10. **Absolute limits**: flag data outside `[-5, 70]`
+11. **Rolling z-score**, with the settings `winsize=48*3` and `thres_zscore=10`. Test repeated until all outliers removed.
+12. **Local standard deviation**, with rolling median and _rolling_ standard deviation with the settings `n_sd=8` and `winsize=48*3`. Test repeated until all outliers removed.
 
-#### FCH4
-1. TODO
+#### FCH4 (methane flux, nmol CH<sub>4</sub> m<sup>-2</sup> s<sup>-1</sup>)
+Link to notebook: [52.0_FluxProcessingChain_L3.3_FCH4_QCF11.ipynb](../notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/52.0_FluxProcessingChain_L3.3_FCH4_QCF11.ipynb)
+1. **Absolute limits**: flag data outside `[-100, 1100]`
+2. **Rolling z-score**, with the settings `winsize=48*3` and `thres_zscore=8`. Test repeated until all outliers removed. 
+3. **Local standard deviation**, with rolling median and _rolling_ standard deviation with the settings `n_sd=7` and `winsize=48*3`. Test repeated until all outliers removed.
 
 ## Level 3.3: USTAR filtering
 
