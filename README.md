@@ -1,8 +1,12 @@
 # CH-CHA Flux Product
 
-**Current version: FP2025.X (2005-2024)**
+Documentation and notebooks for the PI dataset of the grassland ecosystem station CH-CHA (Chamau). The research station CH-CHA is part of [Swiss FluxNet](https://www.swissfluxnet.ethz.ch/), operated by the [Grassland Sciences Group, ETH Zurich](https://gl.ethz.ch/).
 
-> Documentation and notebooks for the PI dataset of the grassland ecosystem station CH-CHA (Chamau). The research station CH-CHA is part of [Swiss FluxNet](https://www.swissfluxnet.ethz.ch/), operated by the [Grassland Sciences Group, ETH Zurich](https://gl.ethz.ch/).
+## Dataset versions
+
+**CH-CHA FP2025.1 (2005-2024) [current version]**
+- release date: 8 Feb 2025
+- is currently available on demand from the Grassland Sciences group server
 
 ## Contents
 
@@ -22,6 +26,7 @@
 
 - **GPP** and **RECO** from NEE partitioning
 - **ET** calculated from LE
+- more meteo variables
 
 ## Acknowledgments
 
