@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/Flux_Post-processing.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Flux_Post-processing"
             },
             "group": "09c7e238c79b8e2b"
           },
@@ -50,12 +50,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/Flux_Post-processing.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Flux_Post-processing"
             },
             "group": "09c7e238c79b8e2b"
           }
@@ -208,10 +208,13 @@
   },
   "active": "1b429a138060877d",
   "lastOpenFiles": [
+    "docs/Flux_Calculations.md",
+    "docs/Links.md",
     "docs/README.md",
     "docs/Flux_Post-processing.md",
-    "docs/Links.md",
     "docs/Management_Data.md",
+    "docs/Meteo_Data.md",
+    "docs/References.md",
     "README.md",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4_20250208.csv.zip",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4.csv.zip",
@@ -223,10 +226,7 @@
     "notebooks/90_DATASET_OVERVIEW/99_Variables.ipynb",
     "notebooks/90_DATASET_OVERVIEW/92_METEO_TA-Copy1.ipynb",
     "notebooks/90_DATASET_OVERVIEW/Untitled.ipynb",
-    "docs/References.md",
-    "docs/Flux_Calculations.md",
     "Flux_Calculations.md",
-    "docs/Meteo_Data.md",
     "notebooks/README.md",
     "docs.md",
     "docs/Figures.md",

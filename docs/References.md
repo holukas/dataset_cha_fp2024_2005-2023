@@ -1,3 +1,5 @@
+# References
+
 *   Keenan, T. F., Migliavacca, M., Papale, D., Baldocchi, D., Reichstein, M., Torn, M., & Wutzler, T. (2019). Widespread inhibition of daytime ecosystem respiration. _Nature Ecology & Evolution_, _3_(3), 407–415. [https://doi.org/10.1038/s41559-019-0809-2](https://doi.org/10.1038/s41559-019-0809-2)
 *   Lasslop, G., Reichstein, M., Papale, D., Richardson, A. D., Arneth, A., Barr, A., Stoy, P., & Wohlfahrt, G. (2010). Separation of net ecosystem exchange into assimilation and respiration using a light response curve approach: Critical issues and global evaluation: SEPARATION OF NEE INTO GPP AND RECO. _Global Change Biology_, _16_(1), 187–208. [https://doi.org/10.1111/j.1365-2486.2009.02041.x](https://doi.org/10.1111/j.1365-2486.2009.02041.x)
 * Mauder, M., & Foken, T. (2006). Impact of post-field data processing on eddy covariance flux estimates and energy balance closure. _Meteorologische Zeitschrift_, _15_(6), 597–609. [https://doi.org/10.1127/0941-2948/2006/0167](https://doi.org/10.1127/0941-2948/2006/0167

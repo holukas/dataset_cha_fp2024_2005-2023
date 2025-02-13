@@ -1,9 +1,11 @@
-# Level 0: Preliminary flux calculations
+# Flux Calculations
+
+## Level 0: Preliminary flux calculations
 
 - More details can be found in the documentation of the [Flux Processing Chain](https://www.swissfluxnet.ethz.ch/index.php/data/ecosystem-fluxes/flux-processing-chain/#Step_2_Level-0_Preliminary_Flux_Calculations_With_OPENLAG_and_Other_Tests)
 - Generally, preliminary flux calculations were used to check whether the flux processing works, to check the wind direction across years and to determine appropriate time windows for lag search for final flux calculations (Level-1)
 
-## OPENLAG runs to determine lag ranges
+### OPENLAG runs to determine lag ranges
 
 - Notebook example: [Time lag check for 2024](https://github.com/holukas/dataset_cha_fp2024_2005-2023/blob/main/notebooks/00_L0_checks/02_L0_timelags_check.ipynb)
 - The lag between turbulent departures of wind and the gas of interest was first determined in a relatively wide time window (called OPENLAG run:  )
@@ -64,7 +66,7 @@
 | **2021_2_2022_1**     | 1.75, 1.50-3.30  | 1.75, 1.50-3.30  | 1.80, 1.65-6.00 | LGR, lag fluctuates within these ranges                |
 
 
-## Check wind direction across years
+### Check wind direction across years
 
 I compared histograms of wind directions between 2005 and 2024 using Level-0 fluxes and found that a sonic orientation of 7° offset to north yields very similar results across years. It is therefore possible the the sonic orientation across all years was always close to 7°.
 
@@ -95,7 +97,7 @@ Here are results from a comparison of annual wind direction histograms (with bin
 | **2023** | -2.0                 |
 | **2024** | 1.0                  |
 
-# Level 1: Final flux calculations
+## Level 1: Final flux calculations
 
 XXX
 
