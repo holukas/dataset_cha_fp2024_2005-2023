@@ -17,7 +17,7 @@
     - **IRGA**: peak of distribution was used as nominal (default) lag, time ranges around this peak were used as time window (**Table EC1**)
     - **QCL**: peak of distrubution was used as constant lag for the respective time period, no time window used, all lags were constant (**Table EC2**)
 
-##### **Table EC1**. IRGA lag ranges (seconds) for CO2 and H2O (LE) used in final flux calculations.
+##### **Table EC1**. IRGA nominal (default) time lags and size of the lag search windows for different time periods in seconds.  Used for CO2 and H2O (LE) in final flux calculations.
 
 | **time period**    | **CO2 IRGA**    | **H2O IRGA** | **Notes**             |
 | ------------------ | --------------- | ------------ | --------------------- |
@@ -74,7 +74,7 @@ Here are results from a comparison of annual wind direction histograms (with bin
 
 ##### **Table EC3**. Wind direction offsets (in degrees) compared to a reference period (2006-2009) from Level-0 OPENLAG runs.
 
-| **YEAR** | **OFFSET (°)  <br>** |
+| **YEAR** | **OFFSET (°)** |
 | -------- | -------------------- |
 | **2005** | 1.0                  |
 | **2006** | 0.0                  |
@@ -101,7 +101,7 @@ Here are results from a comparison of annual wind direction histograms (with bin
 
 XXX
 
-##### **List EC1**: Level-1 files IRGA (2005-2024).
+##### **Table EC4**: Level-1 files IRGA (2005-2024).
 
 | Used Level-1 files.         |
 | ------------------------------------------------------------------------------------------ |

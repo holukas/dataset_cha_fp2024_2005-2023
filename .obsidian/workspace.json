@@ -6,7 +6,7 @@
       {
         "id": "5cc31ff0d2ff9a41",
         "type": "tabs",
-        "dimension": 42.048401037165085,
+        "dimension": 52.85220397579948,
         "children": [
           {
             "id": "1b429a138060877d",
@@ -14,17 +14,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Flux_Post-processing.md",
+                "file": "docs/Meteo_Data.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Flux_Post-processing"
+              "title": "Meteo_Data"
             },
             "group": "09c7e238c79b8e2b"
           },
           {
-            "id": "63899bb4ebed5793",
+            "id": "13e792b2b042f4a8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -36,13 +36,27 @@
               "icon": "lucide-file",
               "title": "References"
             }
+          },
+          {
+            "id": "c582213d306bbd31",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/Flux_Post-processing.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Flux_Post-processing"
+            }
           }
         ]
       },
       {
         "id": "3c0c231474fd2b51",
         "type": "tabs",
-        "dimension": 57.951598962834915,
+        "dimension": 47.14779602420052,
         "children": [
           {
             "id": "91d93e74fdeefc36",
@@ -50,12 +64,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Flux_Post-processing.md",
+                "file": "docs/Meteo_Data.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flux_Post-processing"
+              "title": "Meteo_Data"
             },
             "group": "09c7e238c79b8e2b"
           }
@@ -91,7 +105,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"table \"",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -208,13 +222,15 @@
   },
   "active": "1b429a138060877d",
   "lastOpenFiles": [
+    "notebooks/10_METEO/README.txt",
+    "notebooks/10_METEO/untitled.txt",
+    "docs/References.md",
+    "docs/Meteo_Data.md",
+    "docs/Flux_Post-processing.md",
     "docs/Flux_Calculations.md",
     "docs/Links.md",
     "docs/README.md",
-    "docs/Flux_Post-processing.md",
     "docs/Management_Data.md",
-    "docs/Meteo_Data.md",
-    "docs/References.md",
     "README.md",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4_20250208.csv.zip",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4.csv.zip",
@@ -225,7 +241,6 @@
     "notebooks/90_DATASET_OVERVIEW/GFG",
     "notebooks/90_DATASET_OVERVIEW/99_Variables.ipynb",
     "notebooks/90_DATASET_OVERVIEW/92_METEO_TA-Copy1.ipynb",
-    "notebooks/90_DATASET_OVERVIEW/Untitled.ipynb",
     "Flux_Calculations.md",
     "notebooks/README.md",
     "docs.md",

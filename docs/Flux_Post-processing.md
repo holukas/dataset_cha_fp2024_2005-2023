@@ -348,7 +348,7 @@ FEATURES = METEO_VARS + AGG_VARS + MGMT_VARS
 
 ## Level 4.2: NEE Partitioning (planned)
 
-- _in progress_
+- _planned_
 - Nighttime method based on Reichstein et al (2005)
 - Daytime method based on Lasslop et al. (2010)
 - Modified daytime method based on Keenan et al. (2019)
