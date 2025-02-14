@@ -1,7 +1,7 @@
 # Management Data
 
-- [Management notebook on GitHub](https://github.com/holukas/dataset_cha_fp2024_2005-2023/blob/main/notebooks/20_MANAGEMENT/22.0_ConvertMgmtToTimeseries_Correction.ipynb)
-- TODO: ADD EXCEL FILE
+- **Notebook**: [22.0_ConvertMgmtToTimeseries.ipynb](../notebooks/20_MANAGEMENT/22.0_ConvertMgmtToTimeseries.ipynb)
+- **Detailed management info**: [CH-CHA-Management_2005-2024_20250107.zip](../data/CH-CHA-Management_2005-2024_20250107.zip) (zipped XLSX file, 8MB)
 
 Detailed management data are available in an Excel file. The file contains info between 2001 and 2024, whereby info for 2024 and some info for 2023 (e.g., C content of fertilizer) was not available yet. Key information was converted to a time series format with the aim to be used e.g. in machine-learning models.
 

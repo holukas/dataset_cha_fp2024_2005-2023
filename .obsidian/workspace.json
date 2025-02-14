@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Meteo_Data.md",
+                "file": "docs/Management_Data.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Meteo_Data"
+              "title": "Management_Data"
             },
             "group": "09c7e238c79b8e2b"
           },
@@ -64,12 +64,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Meteo_Data.md",
-                "mode": "preview",
+                "file": "docs/Management_Data.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Meteo_Data"
+              "title": "Management_Data"
             },
             "group": "09c7e238c79b8e2b"
           }
@@ -222,25 +222,25 @@
   },
   "active": "1b429a138060877d",
   "lastOpenFiles": [
+    "notebooks/20_MANAGEMENT/README.md",
+    "docs/Management_Data.md",
+    "docs/Flux_Calculations.md",
+    "data/CH-CHA-Management_2005-2024_20250107.zip",
+    "data",
+    "notebooks/0_data/MANAGEMENT/CH-CHA-Management_2005-2024_20250107.zip",
+    "docs/Meteo_Data.md",
     "notebooks/10_METEO/README.txt",
     "notebooks/10_METEO/untitled.txt",
     "docs/References.md",
-    "docs/Meteo_Data.md",
     "docs/Flux_Post-processing.md",
-    "docs/Flux_Calculations.md",
     "docs/Links.md",
     "docs/README.md",
-    "docs/Management_Data.md",
     "README.md",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4_20250208.csv.zip",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4.csv.zip",
     "notebooks/60_MERGE_DATA_FLUXES/61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4.csv.zip",
     "notebooks/60_MERGE_DATA_FLUXES/61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4.zip",
     "notebooks/90_DATASET_OVERVIEW/99.1_ListOfAllVariables.csv",
-    "notebooks/90_DATASET_OVERVIEW/file.csv",
-    "notebooks/90_DATASET_OVERVIEW/GFG",
-    "notebooks/90_DATASET_OVERVIEW/99_Variables.ipynb",
-    "notebooks/90_DATASET_OVERVIEW/92_METEO_TA-Copy1.ipynb",
     "Flux_Calculations.md",
     "notebooks/README.md",
     "docs.md",
