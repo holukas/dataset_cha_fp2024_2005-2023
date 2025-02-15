@@ -6,7 +6,7 @@
       {
         "id": "5cc31ff0d2ff9a41",
         "type": "tabs",
-        "dimension": 52.85220397579948,
+        "dimension": 49.78392394122731,
         "children": [
           {
             "id": "1b429a138060877d",
@@ -14,14 +14,42 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Management_Data.md",
+                "file": "docs/Flux_Calculations.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Management_Data"
+              "title": "Flux_Calculations"
             },
             "group": "09c7e238c79b8e2b"
+          },
+          {
+            "id": "899ff8337af393dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/Links.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Links"
+            }
+          },
+          {
+            "id": "0d116107959dad74",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://docs.google.com/spreadsheets/d/1KXaTtckHqOGULcr9nwL0FJ-xDnMJUFeDaXX8zh0fbJo/edit?gid=511537528#gid=511537528",
+                "title": "CH-CHA / FP2025.1 (2005-2024) - Google Sheets",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "CH-CHA / FP2025.1 (2005-2024) - Google Sheets"
+            }
           },
           {
             "id": "13e792b2b042f4a8",
@@ -56,7 +84,7 @@
       {
         "id": "3c0c231474fd2b51",
         "type": "tabs",
-        "dimension": 47.14779602420052,
+        "dimension": 50.216076058772686,
         "children": [
           {
             "id": "91d93e74fdeefc36",
@@ -64,12 +92,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Management_Data.md",
+                "file": "docs/Flux_Calculations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Management_Data"
+              "title": "Flux_Calculations"
             },
             "group": "09c7e238c79b8e2b"
           }
@@ -222,9 +250,10 @@
   },
   "active": "1b429a138060877d",
   "lastOpenFiles": [
-    "notebooks/20_MANAGEMENT/README.md",
-    "docs/Management_Data.md",
+    "docs/Links.md",
     "docs/Flux_Calculations.md",
+    "docs/Management_Data.md",
+    "notebooks/20_MANAGEMENT/README.md",
     "data/CH-CHA-Management_2005-2024_20250107.zip",
     "data",
     "notebooks/0_data/MANAGEMENT/CH-CHA-Management_2005-2024_20250107.zip",
@@ -233,7 +262,6 @@
     "notebooks/10_METEO/untitled.txt",
     "docs/References.md",
     "docs/Flux_Post-processing.md",
-    "docs/Links.md",
     "docs/README.md",
     "README.md",
     "notebooks/60_MERGE_DATA_FLUXES/CH-CHA_FP2025.1_2005-2024_61.1_FLUXES_M10_MGMT_L4.1_NEE_LE_H_FN2O_FCH4_20250208.csv.zip",

@@ -99,7 +99,73 @@ Here are results from a comparison of annual wind direction histograms (with bin
 
 ## Level 1: Final flux calculations
 
-XXX
+[fluxrun](https://github.com/holukas/fluxrun) v1.4.1 (using EddyPro v7.0.9) was used for all flux calculations.
+
+### Project creation
+- **Raw file format**: ASCII plain text
+- **Metadata file**: Use alternative file
+- **Biomet data**: Use external file
+- **Metadata**:
+	- **Timestamp refers to**: Beginning of dataset period
+	- **File duration**: 360 min
+	- **Acquisition frequency**: 20 Hz
+	- **Canopy height**: 0.50 m (constant across all years, dynamic canopy height was not available for most years)
+	- **Displacement height**: 0.40 m
+	- **Roughness length**: 0.08 m
+	- **Altitude**: 393 m
+	- **Latitude**: 47° 12' 36.799'' N
+	- **Longitude**: 008° 24' 38.300'' E
+	- **Example for instrument settings from 2022**:
+		- **Anemometer**: Gill R3-50, Height: 2.41 m, Wind data format: U, V & W, North alignment: Axis, North off-set: 7.0°
+		- **Gas Analyzers**:
+			- **LI-7500 IRGA**: Northward separation: 4.00 cm, Eastward separation: 35.00 cm, Vertical separation: -1.00 cm
+			- **LGR** (Los Gatos Laser, Generic Closed Path): Northward separation: 0 cm, Eastward separation: -5.00 cm, Vertical separation: -18.00 cm, Tube length: 954 cm, Tube inner diameter: 10.0 mm, Nominal tube flow rate: 8.0 l/m, Longitudinal path length: 28.00 cm, Transversal path length: 4.4450 cm, Time response: 0.1 s
+	- **Raw File Description**:
+		- Original raw data files were converted from an irregular compressed binary format to a regular ASCII format using [bico](https://github.com/holukas/bico)
+		- **Field separator**: Comma
+		- **Number of header rows**: 3
+		- Columns were defined depending on the year or time period
+		- ASCII files contained data for (in order): sonic anemometer, IRGA and QCL or LGR (if available)
+
+### Basic settings
+- **Files Info**: this section in EddyPro was handled by [fluxrun](https://github.com/holukas/fluxrun)
+- **Missing samples allowance**: 10%
+- **Flux averaging interval**: 30 min
+- **North reference**: Use magnetic north
+- **Master anemometer**: R3-50
+- **Gas measurements**:
+	- CO2: using IRGA mole fraction for fluxes
+	- H2O: IRGA mole fraction (used as main flux), for some periods QCL/LGR mole fractions (only used as auxiliary flux)
+	- N2O: QCL/LGR mixing ratio
+	- CH4: QCL/LGR mixing ratio
+- **Cell measurements**:
+	- Average Cell Temperature: from QCL/LGR
+	- Cell Pressure: from QCL/LGR
+- **Ambient measurements**:
+	- used data from external biomet data file
+- **Diagnostic measurements**:
+	- Not directly used since the diagnostic value was only available for newer years. However, the AGC (automatic gain control, a measure of signal quality/strength) was used in all years.
+
+### Advanced settings
+- **Angle-of-attack correction**: NO, has a tendency to overestimate CO2 uptake
+- **Axis rotations for tilt correction**: Double rotation
+- **Turbulent fluctuations**: 
+	- Detrend method: Block average
+	- Time lag compensation:
+		- IRGA: Covariance maximization with default (see Table EC1)
+		- QCL/LGR: Constant (see Table EC2)
+- **Compensate density fluctiations (WPL terms)**: YES for open-path IRGA, NO for QCL/LGR
+- **Add instrument sensible heat components for LI-7500**: NO
+- **Quality check**: Mauder and Foken (2004) (0-1-2 system) for Level-1 quality flags, later extended in post-processing
+- **Footprint estimation**: Kljun et al. (2004)
+- **Statistical analyses**: all tests were selected for output, but not all tests were later used. Notable difference to default settings: Angle of attack criteria were slightly relaxed and allowed minimum AoA -35° (instead of default -30°) and maximum AoA +35° (instead of default +35°)
+- **Random flux uncertainty**: Finkelstein and Sims (2001, Definition of the ITS: Cross-correlation first corssing 1/e, Maximum correlation period: 10s)
+- **Spectral Analysis** and Corrections:
+	- TODO
+
+### Note about instrument sensible heat components for LI-7500
+
+TODO
 
 ##### **Table EC4**: Level-1 files IRGA (2005-2024).
 
