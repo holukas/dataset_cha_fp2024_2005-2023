@@ -4,15 +4,20 @@
 /.obsidian
 /.idea/
 /notebooks/0_data
+/notebooks/10_METEO/*.csv
+/notebooks/20_MANAGEMENT/*.csv
+/notebooks/30_MERGE_DATA/*.csv
+/notebooks/40_FLUX_PROCESSING_CHAIN/*.csv
+/notebooks/50_FLUX_PROCESSING_CHAIN_QCL+LGR/*.csv
+/notebooks/60_MERGE_DATA_FLUXES/*.csv
+/notebooks/60_MERGE_DATA_FLUXES/*.zip
 /notebooks/40_FLUX_PROCESSING_CHAIN/tests
 /_presentations
 *.parquet
-*.csv
 *.pptx
 *.html
 *.xlsx
 *.pdf
-*.zip
 x-*.ipynb
 x-*
 
