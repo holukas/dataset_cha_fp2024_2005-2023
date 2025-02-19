@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Flux_Calculations.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flux_Calculations"
+              "title": "README"
             },
             "group": "9a50dbf08f0a6d9e"
           },
@@ -78,12 +78,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Flux_Calculations.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flux_Calculations"
+              "title": "README"
             },
             "group": "9a50dbf08f0a6d9e"
           }
@@ -236,11 +236,11 @@
   },
   "active": "899ff8337af393dd",
   "lastOpenFiles": [
+    "docs/Flux_Calculations.md",
     "docs/Links.md",
     "docs/Flux_Post-processing.md",
     "images/self-heating_CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_diel_cycles.png",
     "images/self-heating_CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_SCALED_flux_correction_term_diel_cycles.jpg",
-    "docs/Flux_Calculations.md",
     "images/CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_in_ustar_classes.png",
     "images/self-heating_CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_in_ustar_classes.png",
     "images/CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_SCALED_flux_correction_term_diel_cycles.jpg",

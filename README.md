@@ -1,6 +1,6 @@
 # CH-CHA Flux Product
 
-Documentation and notebooks for the PI dataset of the grassland ecosystem station CH-CHA (Chamau). The research station CH-CHA is part of [Swiss FluxNet](https://www.swissfluxnet.ethz.ch/), operated by the [Grassland Sciences Group, ETH Zurich](https://gl.ethz.ch/).
+Documentation and notebooks for the PI dataset of the grassland ecosystem station CH-CHA (Chamau). The research station CH-CHA is part of [Swiss FluxNet](https://www.swissfluxnet.ethz.ch/), operated by the [Grassland Sciences Group, ETH Zurich](https://gl.ethz.ch/). Group leader: [Prof. Nina Buchmann](https://gl.ethz.ch/people/person-detail.nina.html).
 
 ## Dataset versions
 
@@ -30,5 +30,8 @@ Documentation and notebooks for the PI dataset of the grassland ecosystem statio
 
 ## Acknowledgments
 
-TODO
+We acknowledge the scientific advice by Werner Eugster and Valentin Klaus in the course of the project. The technical assistance in the maintenance of the QCLAS and the eddy station by Markus Staudinger, Thomas Baur, Philip Meier, Paul Linwood, Peter Plüss, Patrick Koller, Florian Käslin is greatly acknowledged. We thank Lukas Stocker and the staff at Chamau for managing the fields around the flux station. We thank Franziska Richter and Severin Henzmann for the help with field and lab work. Annika Ackermann and Roland A. Werner are greatly acknowledged for measuring biomass C and N concentrations. We thank Regine Maier for helping with the soil sampling in 2018. We also thank Dennis Imer for his scientific and Hans-Ruedi Wettstein for organisational efforts at Chamau. Many student helpers contributed to this work with their assistance in the field and in the lab. Different projects and several doctoral students helped maintaining the site, resulting in a unique and valuable longterm time series.
 
+### Funding
+
+This work was funded by the European Union Horizon 2020 project Developing Sustainable Permanent Grassland Systems and Policies SUPER-G (grant number 774124), the SNF projects GrassGas (200021-105949) and M4P (40FA40_154245) as well as funds from ETH Zurich.
