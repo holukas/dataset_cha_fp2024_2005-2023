@@ -6,7 +6,7 @@
       {
         "id": "5cc31ff0d2ff9a41",
         "type": "tabs",
-        "dimension": 33.141542002301485,
+        "dimension": 54.105445116681075,
         "children": [
           {
             "id": "899ff8337af393dd",
@@ -22,6 +22,20 @@
               "title": "Flux_Calculations"
             },
             "group": "9a50dbf08f0a6d9e"
+          },
+          {
+            "id": "305f82f612eec592",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://www.swissfluxnet.ethz.ch/index.php/documentation/ch-lae-fp2021-2004-2020/#Note_Self-heating_correction_of_open-path_CO2_fluxes",
+                "title": "CH-LAE FP2021 (2004-2020) – Swiss FluxNet",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "CH-LAE FP2021 (2004-2020) – Swiss FluxNet"
+            }
           },
           {
             "id": "13e792b2b042f4a8",
@@ -56,7 +70,7 @@
       {
         "id": "3c0c231474fd2b51",
         "type": "tabs",
-        "dimension": 66.85845799769851,
+        "dimension": 45.894554883318925,
         "children": [
           {
             "id": "95ee4ddd28cf75c0",
@@ -65,7 +79,7 @@
               "type": "markdown",
               "state": {
                 "file": "docs/Flux_Calculations.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -222,10 +236,16 @@
   },
   "active": "899ff8337af393dd",
   "lastOpenFiles": [
-    "docs/References.md",
-    "docs/Flux_Calculations.md",
-    "docs/Flux_Post-processing.md",
     "docs/Links.md",
+    "docs/Flux_Post-processing.md",
+    "images/self-heating_CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_diel_cycles.png",
+    "images/self-heating_CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_SCALED_flux_correction_term_diel_cycles.jpg",
+    "docs/Flux_Calculations.md",
+    "images/CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_in_ustar_classes.png",
+    "images/self-heating_CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_in_ustar_classes.png",
+    "images/CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_SCALED_flux_correction_term_diel_cycles.jpg",
+    "images/CH-LAE_2016-2017_parallel_measurements_IRGA72_IRGA75_correction_scaling_factor_diel_cycles.png",
+    "docs/References.md",
     "images/self-heating_CH-LAE_mixedForest_2016-2017.png",
     "images/self-heating_CH-OE2_cropland_2015-2017.png",
     "images/Pasted image 20220709150820.png",
